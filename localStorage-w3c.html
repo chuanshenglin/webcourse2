@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h1>The localStorage Method</h1>
+
+    <p>This example demonstrates localStorage methods.
+    </p>
+
+    <h2>Missing localStorage items?</h2>
+
+    <p>Since you might not have any items stored in your local storage, we have added a script that creates some for
+        you.</p>
+
+    <button onclick="createItems()">Create local storage items</button>
+
+    <h2>Remove Item</h2>
+
+    <p>Click the button to delete the item:</p>
+
+    <button onclick="deleteItem()">Delete item</button>
+
+    <h2>Remove All Items</h2>
+
+    <p>Click the button to delete the items:</p>
+
+    <button onclick="deleteItems()">Delete items</button>
+
+    <h2>Display Items</h2>
+
+    <p>Click the button to display all items:</p>
+
+    <button onclick="displayItems()">Display items</button>
+
+    <p id="demo"></p>
+
+    <script>
+        function createItems() {
+            localStorage.setItem("mytime", Date.now());
+            localStorage.setItem("myname", "John");
+            localStorage.setItem("myage", 36);
+        }
+
+        function deleteItem() {
+            localStorage.removeItem("mytime");
+        }
+
+        function deleteItems() {
+            localStorage.clear();
+        }
+
+        function displayItems() {
+            var l, i;
+            document.getElementById("demo").innerHTML = "";
+            for (i = 0; i < localStorage.length; i++) {
+                x = localStorage.key(i) + "=" + localStorage.getItem(localStorage.key(i));
+                document.getElementById("demo").innerHTML += x + "<br>";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

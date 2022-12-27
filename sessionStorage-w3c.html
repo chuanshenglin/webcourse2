@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h1>The sessionStorage Methods</h1>
+
+    <p>This example demonstrates sessionStorage methods.</p>
+
+    <h2>Missing sessionStorage items?</h2>
+
+    <p>Since you might not have any items stored in your session storage, we have added a script that creates some for
+        you.</p>
+
+    <button onclick="createItems()">Create session storage items</button>
+
+    <h2>Remove Item</h2>
+
+    <p>Click the button to delete the item: mytime</p>
+
+    <button onclick="deleteItem()">Delete mytime</button>
+
+    <h2>Remove Items</h2>
+
+    <p>Click the button to delete the items:</p>
+
+    <button onclick="deleteItems()">Delete all items</button>
+
+    <h2>Display Items</h2>
+
+    <p>Click the button to display all items:</p>
+
+    <button onclick="displayItems()">Display items</button>
+
+    <p id="demo"></p>
+
+    <script>
+        function createItems() {
+            sessionStorage.setItem("mytime", Date.now());
+            sessionStorage.setItem("myname", "John");
+            sessionStorage.setItem("myage", 36);
+        }
+
+        function deleteItem() {
+            sessionStorage.removeItem("mytime");
+        }
+
+        function deleteItems() {
+            sessionStorage.clear();
+        }
+
+        function displayItems() {
+            var l, i;
+            document.getElementById("demo").innerHTML = "";
+            for (i = 0; i < sessionStorage.length; i++) {
+                x = sessionStorage.key(i) + "=" + sessionStorage.getItem(sessionStorage.key(i));
+
+                document.getElementById("demo").innerHTML += x + "<br>";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
